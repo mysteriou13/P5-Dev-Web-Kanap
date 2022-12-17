@@ -5,8 +5,7 @@ fetch('http://localhost:3000/api/products')
 
 // Promesse 2 : Récupération des données de l'API
 .then(dataBase => { 
-  console.log(products(dataBase));
-
+  products(dataBase);
 })
 
 // Si promesse 1 et 2 non résolue => traitement de l'erreur si pas de réponse de l'url
