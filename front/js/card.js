@@ -2,7 +2,7 @@ function card(product){
 
   
     var card =`
-    <a href="./product.html?id=${product._id}">
+    <a href="./product.html?id=${product._id}&page=produit">
         <article>
             <img src="${product.imageUrl}" alt="${product.altTxt}">
             <h3 class="productName">${product.name}</h3>
