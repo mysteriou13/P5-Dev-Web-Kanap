@@ -9,15 +9,17 @@ fetch('http://localhost:3000/api/products')
 
   var params = new URLSearchParams(document.location.search);
 
+  var pro = new data_produit();
+
   if(params.get("page") == null){
 
-  affiche_produit(dataBase);
+  pro.affiche_all(dataBase);
   
 }
 
 if(params.get("page") == "produit"){
 
-  product(dataBase,params.get("id"));
+  pro.product(dataBase,params.get("id"));
 
 }
 
