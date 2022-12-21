@@ -15,6 +15,35 @@ class data_produit{
         
     }
 
+
+    get_title(){
+
+        return  this.title.innerHTML;
+    }
+
+    get_price(){
+
+        return  this.price.innerHTML;
+    }
+
+     get_description(){
+
+        return this.description.innerHTML;
+    
+     }
+
+     get_item_img(){
+
+        return this.item_img.innerHTML;
+
+     }
+
+     get_color(){
+
+        return this.color.innerHTML;
+
+     }
+
     //affiche du produit
  product(dataBase,id){
 
@@ -76,6 +105,8 @@ class data_produit{
     
     }
 
+ 
+    //afichage des tout les element dans l'index
      affiche_all(dataBase){
     
  
