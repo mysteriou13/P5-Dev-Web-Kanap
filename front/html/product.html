@@ -64,19 +64,19 @@
               <div class="item__content__settings">
                 <div class="item__content__settings__color">
                   <label for="color-select">Choisir une couleur :</label>
-                  <select name="color-select" id = "colors">
+                  <select name="colors" id = "colors">
 
                   </select>
                 </div>
 
                 <div class="item__content__settings__quantity">
                   <label for="itemQuantity">Nombre d'article(s) (1-100) :</label>
-                  <input type="number" name="itemQuantity" min="1" max="100" value="0" id="quantity">
+                  <input type="number" name="itemQuantity"  min="1" max="100" value="0" id="quantity">
                 </div>
               </div>
 
               <div class="item__content__addButton">
-                <button id="addToCart">Ajouter au panier</button>
+                <button id="addToCart" onclick="button_panier()">Ajouter au panier</button>
               </div>
 
             </div>
@@ -110,6 +110,8 @@
     </footer>
 
     <script type="text/javascript" src="../js/data_produit.js"></script>
+
+    <script type="text/javascript" src="../js/panier.js"></script>
 
     <script type = "text/javascript" src = "../js/index.js"></script>
 

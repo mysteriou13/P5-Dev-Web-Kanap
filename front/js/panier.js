@@ -12,9 +12,9 @@ class panier{
     }
 
 
-    cart_panier(data){
-
-     var cardpanier = `
+    cart_panier(data,id){
+      
+      var cardpanier = `
                 <div class="cart__item__img">
                   <img src="${data[1]}" alt="Photographie d'un canapé">
                 </div>
@@ -26,11 +26,11 @@ class panier{
                   </div>
                   <div class="cart__item__content__settings">
                     <div class="cart__item__content__settings__quantity">
-                      <p>Qté : ${data[3]}</p>
-                      <input type="number" class="itemQuantity" name="itemQuantity" min="1" max="100" value="42">
+                      <p>Qté : </p>
+                      <input type="number" class="itemQuantity" name="itemQuantity" min="1" max="100" value="${data[3]}">
                     </div>
                     <div class="cart__item__content__settings__delete">
-                      <p class="deleteItem">Supprimer</p>
+                      <p class="deleteItem" id = `+id+`#${data[2]}>Supprimer</p>
                     </div>
                   </div>
                 </div>`;
@@ -42,7 +42,7 @@ class panier{
 
         show_panier(){
 
-            console.log("panier");  
+            console.log(localStorage);  
 
             var tabitem = [];
 
@@ -80,8 +80,18 @@ class panier{
 
               }
 
-            
-              //console.log(tabid);
+              var tabz = [];
+
+              for(var z = 0; z < tabid.length; z++){
+
+                tabid[z].replace("&Kanap", "");
+
+                tabz.push(tabid[z].replace("&Kanap", ""));
+                
+              }
+
+      
+
 
               var tabd = [];
               
@@ -99,9 +109,7 @@ class panier{
 
               for(var b = 0; b < tabd.length; b++){
 
-                console.log(tabd[b]);
-
-                var titem = this.cart_panier(tabd[b]);
+                var titem = this.cart_panier(tabd[b],tabz[b]);
 
                 document.getElementById("cart__items").innerHTML = document.getElementById("cart__items").innerHTML+titem;
 
