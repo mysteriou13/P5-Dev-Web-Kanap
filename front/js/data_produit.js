@@ -12,6 +12,8 @@ class data_produit{
 
         this.color = document.getElementById("colors");
 
+        this.img_url = null;
+
         
     }
 
@@ -44,6 +46,12 @@ class data_produit{
 
      }
 
+     get_image_url(){
+
+        return this.img_url;
+
+     }
+
     //affiche du produit
  product(dataBase,id){
 
@@ -63,6 +71,8 @@ class data_produit{
          description.innerHTML = product.description;
          
          image.src = product.imageUrl;
+
+         this.img_url =  product.imageUrl;
 
          image.alt = product.altTxt;
 
@@ -127,4 +137,16 @@ class data_produit{
      
  
  }
+
+ select_color() {
+    
+    var x = document.getElementById("colors").selectedIndex;
+    var y = document.getElementById("colors").options;
+    
+    var text = y[x].text;
+ 
+    return text;
+
+  }
+
 }
