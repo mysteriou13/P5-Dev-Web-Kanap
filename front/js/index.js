@@ -8,7 +8,6 @@ var pan = new panier();
 var url = window.location.href;
 
 let position = url.search("cart.html");
-
  
   if(position !== -1){
 
@@ -16,17 +15,20 @@ let position = url.search("cart.html");
 
   }
 
-function button_panier() {
+  function delete_el(id){
 
-  var  tab = [];
+    localStorage.removeItem(id);
+
+  }
+
+function button_panier() {
 
   var id  = params.get("id")+"#"+pro.select_color();
 
-  var data = params.get("id")+"&"+pro.get_title()+"&"+pro.get_image_url()+"&"+pro.select_color()+"&"+document.getElementById("quantity").value;
+  var data = id+"§"+pro.get_title()+"§"+pro.get_image_url()+"§"+pro.select_color()+"§"+document.getElementById("quantity").value;
 
-tab.push(id,data);
 
-pan.add_element(tab[0],tab[1]);
+pan.add_element(id,data);
 
 }
 

@@ -2,35 +2,39 @@ class panier{
 
     add_element(key,value){
 
+
+      alert(key);
+
         if(localStorage.getItem(key) === null){
 
-            alert("add");
-            localStorage.setItem(key, value);
+          localStorage.setItem(key, value);
+
+          
 
         }
 
     }
 
 
-    cart_panier(data,id){
+    card_panier(data){
       
       var cardpanier = `
                 <div class="cart__item__img">
-                  <img src="${data[1]}" alt="Photographie d'un canapé">
+                  <img src="${data[2]}" alt="Photographie d'un canapé">
                 </div>
                 <div class="cart__item__content">
                   <div class="cart__item__content__description">
-                    <h2>${data[0]}</h2>
-                    <p>${data[2]}</p>
+                    <h2>${data[1]}</h2>
+                    <p>${data[3]}</p>
                     <p>42,00 €</p>
                   </div>
                   <div class="cart__item__content__settings">
                     <div class="cart__item__content__settings__quantity">
                       <p>Qté : </p>
-                      <input type="number" class="itemQuantity" name="itemQuantity" min="1" max="100" value="${data[3]}">
+                      <input type="number" class="itemQuantity" name="itemQuantity" min="1" max="100" value="${data[4]}">
                     </div>
                     <div class="cart__item__content__settings__delete">
-                      <p class="deleteItem" id = `+id+`#${data[2]}>Supprimer</p>
+                      <p class="deleteItem" id = "${data[0]}" onclick = "delete_el(this.id)">Supprimer</p>
                     </div>
                   </div>
                 </div>`;
@@ -42,11 +46,9 @@ class panier{
 
         show_panier(){
 
-            console.log(localStorage);  
-
+      
             var tabitem = [];
 
-            var tabitem1 = [];
 
             for (var i = 0; i < localStorage.length; i++) {
 
@@ -56,62 +58,21 @@ class panier{
                 // use key name to retrieve the corresponding value
                 var value = localStorage.getItem(key);
 
-                 tabitem.push(value);
+                 tabitem.push(value+"§");
               
                 // console.log the iteration key and value
             
-                //console.log(value);
-
-              }
-   
-              var tabid = [];
-
-              for(var t = 0; t <tabitem.length; t++){
-
-                 //console.log(tabitem[t]);
-
-                 var tab = tabitem[t].split(' ');
-
-                    //console.log(tab[1]);
-
-                    tabitem1.push(tab[1]);
-
-                    tabid.push(tab[0]);
-
+               
               }
 
-              var tabz = [];
+              for(var a = 0; a < tabitem.length; a++){
+             
+                console.log(tabitem[a].split("§"));
 
-              for(var z = 0; z < tabid.length; z++){
+                var t = tabitem[a].split("§");
 
-                tabid[z].replace("&Kanap", "");
+                document.getElementById("cart__items").innerHTML = document.getElementById("cart__items").innerHTML+this.card_panier(t);
 
-                tabz.push(tabid[z].replace("&Kanap", ""));
-                
-              }
-
-      
-
-
-              var tabd = [];
-              
-              for(var t1 = 0; t1 < tabitem1.length; t1++){
-
-                //console.log(tabitem1[t1]);
-
-                var d = tabitem1[t1].split("&");
-
-               tabd.push(d);
-
-              }
-
-         
-
-              for(var b = 0; b < tabd.length; b++){
-
-                var titem = this.cart_panier(tabd[b],tabz[b]);
-
-                document.getElementById("cart__items").innerHTML = document.getElementById("cart__items").innerHTML+titem;
 
               }
 
