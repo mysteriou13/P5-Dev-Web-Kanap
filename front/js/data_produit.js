@@ -52,6 +52,7 @@ class data_produit{
 
      }
 
+
     //affiche du produit
  product(dataBase,id){
 
@@ -148,5 +149,147 @@ class data_produit{
     return text;
 
   }
+
+  data_price(){
+
+    var tabitem = [];
+
+
+    var tabitem = [];
+
+
+    for (var i = 0; i < localStorage.length; i++) {
+
+        // set iteration key name
+        var key = localStorage.key(i);
+      
+        // use key name to retrieve the corresponding value
+        var value = localStorage.getItem(key);
+
+         tabitem.push(value+"§");
+      
+        // console.log the iteration key and value
+    
+       
+      }
+
+      var tabid = [];
+
+      for(var a = 0; a < tabitem.length; a++){
+     
+        //console.log(tabitem[a].split("§"));
+
+        var t = tabitem[a].split("§");
+
+        tabid.push(t[0]);
+        
+      }
+
+    
+
+      var tabid = [];
+      var tabtotal = [];
+      var tabquant = [];
+      var tabprice = [];
+    //console.log(localStorage.getItem("107fb5b75607497b96722bda5b504926#Blue"));
+
+
+
+    for (var i = 0; i < localStorage.length; i++) {
+
+        // set iteration key name
+        var key = localStorage.key(i);
+      
+        // use key name to retrieve the corresponding value
+        var value = localStorage.getItem(key);
+
+         tabitem.push(value+"§");
+      
+         var d = tabitem[i].split("§");
+
+          tabid.push(d[0]); 
+              
+         tabquant.push(parseInt(d[4]));
+     
+    }
+
+    const initialValue = 0;
+    const totalquant = tabquant.reduce(
+      (accumulator, currentValue) => accumulator + currentValue,
+      initialValue
+    );
+    
+    console.log(totalquant);
+  
+
+    fetch('http://localhost:3000/api/products')
+
+
+    .then(response => response.json()) 
+    
+    // Promesse 2 : Récupération des données de l'API
+    .then(dataBase => {
+
+
+        for(var f = 0; f < dataBase.length; f++){
+
+    
+        for(var f1 = 0; f1 < tabid.length; f1++){
+
+            var id = dataBase[f]._id;
+        
+            if(tabid[f1].indexOf(id) != -1){
+         
+        
+              tabprice.push(dataBase[f]._id+"µ"+dataBase[f].price);
+            
+               var splittab = localStorage.getItem(tabid[f1]).split("§");
+
+            
+               tabtotal.push(dataBase[f].price*splittab[4]);
+
+            }
+        
+       }
+
+        }
+
+       
+
+
+        for(var p = 0; p <tabprice.length; p++){
+
+          var p1 = tabprice[p].split("µ");
+
+          document.getElementById(p1[0]).innerHTML = p1[1]+"€";
+
+        }
+
+        const initialValue = 0;
+const total = tabtotal.reduce(
+  (accumulator, currentValue) => accumulator + currentValue,
+  initialValue
+)
+
+
+
+document.getElementById("totalQuantity").innerHTML = totalquant;
+
+document.getElementById("totalPrice").innerHTML = total;
+
+
+     
+        
+    
+    })
+    
+    // Si promesse 1 et 2 non résolue => traitement de l'erreur si pas de réponse de l'url
+    .catch((err) => {
+     
+      
+    
+    });
+
+}
 
 }

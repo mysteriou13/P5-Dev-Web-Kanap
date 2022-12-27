@@ -7,6 +7,8 @@ var pan = new panier();
 
 var url = window.location.href;
 
+pro.data_price();
+
 let position = url.search("cart.html");
  
   if(position !== -1){

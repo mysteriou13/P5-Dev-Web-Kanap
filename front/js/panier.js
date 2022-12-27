@@ -17,6 +17,12 @@ class panier{
 
 
     card_panier(data){
+
+   
+
+      var idcolor = data[0];
+
+        var t = idcolor.split("#");
       
       var cardpanier = `
                 <div class="cart__item__img">
@@ -26,7 +32,7 @@ class panier{
                   <div class="cart__item__content__description">
                     <h2>${data[1]}</h2>
                     <p>${data[3]}</p>
-                    <p>42,00 €</p>
+                    <p id = "`+t[0]+`">42,00 €</p>
                   </div>
                   <div class="cart__item__content__settings">
                     <div class="cart__item__content__settings__quantity">
@@ -67,7 +73,7 @@ class panier{
 
               for(var a = 0; a < tabitem.length; a++){
              
-                console.log(tabitem[a].split("§"));
+
 
                 var t = tabitem[a].split("§");
 
