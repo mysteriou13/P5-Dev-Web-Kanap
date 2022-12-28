@@ -3,13 +3,45 @@ class panier{
     add_element(key,value){
 
 
-      alert(key);
-
         if(localStorage.getItem(key) === null){
 
           localStorage.setItem(key, value);
 
+        }else{
+
+          this.update_quantity(key,value);
         }
+
+    }
+
+    update_quantity(key,value){
+
+    
+      if(localStorage.getItem(key) !== null){
+
+       var data = localStorage.getItem(key).split("§");
+
+       var val = value.split("§");
+
+       var quant =  parseInt(data[4]);
+
+       var update = null;
+
+       if(  quant+parseInt(val[4]) <= 99){
+
+         var update = quant+parseInt(val[4]);
+
+         }else{
+          update = 100;
+         }
+
+         var total = data[0]+"§"+data[1]+"§"+data[2]+"§"+data[3]+"§"+update; 
+
+         
+         localStorage.setItem(key, total);
+
+      }
+
 
     }
 
