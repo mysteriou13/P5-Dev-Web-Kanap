@@ -9,8 +9,6 @@ class panier{
 
           localStorage.setItem(key, value);
 
-          
-
         }
 
     }

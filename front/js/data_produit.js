@@ -219,7 +219,6 @@ class data_produit{
       initialValue
     );
     
-    console.log(totalquant);
   
 
     fetch('http://localhost:3000/api/products')
@@ -262,23 +261,18 @@ class data_produit{
           var p1 = tabprice[p].split("µ");
 
           document.getElementById(p1[0]).innerHTML = p1[1]+"€";
-
+         document.getElementById("totalQuantity").innerHTML = totalquant;
         }
 
-        const initialValue = 0;
+        const initialValue1 = 0;
 const total = tabtotal.reduce(
   (accumulator, currentValue) => accumulator + currentValue,
-  initialValue
+  initialValue1
 )
 
+console.log(tabtotal);
 
-
-document.getElementById("totalQuantity").innerHTML = totalquant;
-
-document.getElementById("totalPrice").innerHTML = total;
-
-
-     
+document.getElementById("totalPrice").innerHTML = total;     
         
     
     })

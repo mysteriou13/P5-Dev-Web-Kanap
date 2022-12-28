@@ -7,13 +7,15 @@ var pan = new panier();
 
 var url = window.location.href;
 
+let position = url.search("cart.html");
+
 pro.data_price();
 
-let position = url.search("cart.html");
- 
   if(position !== -1){
 
     pan.show_panier();
+
+    
 
   }
 
@@ -55,6 +57,9 @@ if(params.get("page") == "produit"){
 
 
   pro.product(dataBase,params.get("id"));
+
+
+  
 
 }
 
