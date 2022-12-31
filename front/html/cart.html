@@ -59,27 +59,27 @@
               <form method="get" class="cart__order__form">
                 <div class="cart__order__form__question">
                   <label for="firstName">Prénom: </label>
-                  <input type="text" name="firstName" id="firstName" required>
+                  <input type="text" name="firstName" id="firstName" onKeyUp ="verif_champ(this.id)" required>
                   <p id="firstNameErrorMsg"><!-- ci est un message d'erreur --></p>
                 </div>
                 <div class="cart__order__form__question">
                   <label for="lastName">Nom: </label>
-                  <input type="text" name="lastName" id="lastName" required>
+                  <input type="text" name="lastName" id="lastName" onKeyUp ="verif_champ(this.id)" required>
                   <p id="lastNameErrorMsg"></p>
                 </div>
                 <div class="cart__order__form__question">
                   <label for="address">Adresse: </label>
-                  <input type="text" name="address" id="address" required>
+                  <input type="text" name="address" id="address" onKeyup = "verif_adress(this.id)" required>
                   <p id="addressErrorMsg"></p>
                 </div>
                 <div class="cart__order__form__question">
                   <label for="city">Ville: </label>
-                  <input type="text" name="city" id="city" required>
+                  <input type="text" name="city" id="city"   onKeyup = "verif_ville(this.id)" required>
                   <p id="cityErrorMsg"></p>
                 </div>
                 <div class="cart__order__form__question">
                   <label for="email">Email: </label>
-                  <input type="email" name="email" id="email" required>
+                  <input type="email" name="email" id="email"  onKeyUp = "verif_mail(id)" required>
                   <p id="emailErrorMsg"></p>
                 </div>
                 <div class="cart__order__form__submit">
@@ -119,6 +119,8 @@
     <script type="text/javascript" src="../js/data_produit.js"></script>
 
     <script type="text/javascript" src="../js/panier.js"></script>
+
+    <script type="text/javascript" src="../js/regex.js"></script>
   
     <script type="text/javascript" src="../js/index.js"></script>
     

@@ -5,6 +5,8 @@ var params = new URLSearchParams(document.location.search);
 
 var pan = new panier();
 
+var reg = new regex();
+
 var url = window.location.href;
 
 let position = url.search("cart.html");
@@ -18,6 +20,29 @@ pro.data_price();
     
 
   }
+
+    function  verif_champ(id){
+
+      reg.regex_nom(id);
+      
+    }
+
+    function verif_mail(id){
+
+      reg.ValidateEmail(id);
+
+    }
+
+    function verif_adress(id){
+
+      reg.valide_adress(id);
+
+    }
+
+    function verif_ville(id){
+
+      reg.verif_city(id);
+    }
 
   function delete_el(id){
 
