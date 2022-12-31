@@ -17,9 +17,17 @@ pro.data_price();
 
     pan.show_panier();
 
-    
+    button.addEventListener("mouseenter", function( event ) {
+
+      pan.button_commander();
+   
+     })
 
   }
+
+   var button = document.getElementById("order");
+
+  
 
     function  verif_champ(id){
 

@@ -114,6 +114,40 @@ class panier{
 
               
         }
-    
 
-}
+        button_commander(){
+
+          var taberrror = ["firstNameErrorMsg", "lastNameErrorMsg", "addressErrorMsg", "cityErrorMsg", "emailErrorMsg"];
+
+          var error = 0;
+
+         var btn = document.getElementById("order");
+          
+        for(var e = 0; e < taberrror.length; e++){
+
+          var diverror = document.getElementById(taberrror[e]);
+
+          if(diverror.innerHTML !== " "){
+
+            error = error-1;
+
+          }else{
+            error = error+1;
+          }
+        }
+
+        if(error == 5){
+
+          btn.type = "submit";
+        
+        }else{
+
+          btn.type = "button";
+
+        }
+
+      }
+      
+    }
+
+        
