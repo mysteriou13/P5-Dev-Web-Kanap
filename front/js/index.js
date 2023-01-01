@@ -11,6 +11,11 @@ var url = window.location.href;
 
 let position = url.search("cart.html");
 
+let confirmation = url.search("confirmation.html");
+
+var button = document.getElementById("order");
+
+
 pro.data_price();
 
   if(position !== -1){
@@ -25,8 +30,15 @@ pro.data_price();
 
   }
 
-   var button = document.getElementById("order");
+   if(confirmation !== -1){
 
+    let params = new URLSearchParams(document.location.search);
+
+    let name = params.get("orderId");
+
+    document.getElementById("orderId").innerHTML = name;
+
+    } 
   
 
     function  verif_champ(id){
@@ -69,7 +81,8 @@ pan.add_element(id,data);
 
 }
 
-
+ 
+    
 
 fetch('http://localhost:3000/api/products')
 
@@ -93,7 +106,21 @@ if(params.get("page") == "produit"){
 
 
   
+if(params.get("page") == null){
 
+  pro.affiche_all(dataBase);
+  
+}
+
+if(params.get("page") == "produit"){
+
+
+  pro.product(dataBase,params.get("id"));
+
+
+  
+
+}
 }
 
 

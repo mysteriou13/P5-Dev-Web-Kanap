@@ -115,6 +115,79 @@ class panier{
               
         }
 
+        number_commande(){
+          var productId = [];
+
+var tabkey = [];
+
+var tabproduit = [];
+
+var key = [];
+
+for (let i = 0; i < localStorage.length; i++) {
+ 
+   tabkey.push(localStorage.key(i));
+
+}
+
+
+
+for(var c = 0; c < tabkey.length; c++){
+
+  var e  = tabkey[c].split("#");
+
+  key.push(e[0]);
+
+}   
+
+
+console.log(key);
+
+    var productId = key;
+
+      let order = {
+        contact: {
+          firstName: "first",
+          lastName: "lastName.value",
+          address: "address.value",
+          city: "city.value",
+          email: "email.value",
+        },
+        products: productId,
+      };
+
+   
+
+      // Options de la method POST. 
+
+      const options = {
+        method: 'POST',
+        body: JSON.stringify(order),
+        headers: {
+          Accept: 'application/json',
+          'Content-type': 'application/json',
+        },
+      };
+
+      // Appel de l'API et Envoie des informations contact & products à l'aide de la méthode POST. 
+
+      fetch('http://localhost:3000/api/products/order', options)
+        .then((response) =>  response.json())
+        
+        .then((dataBase) => {
+          
+          const orderId = dataBase.orderId;
+
+          //envoie vers la page de de confirmation avec l'orderId en fin de l'URL.
+
+          window.location.href = 'confirmation.html' + '?orderId=' + orderId;
+         
+        })
+        .catch((error) => {
+          alert(error);
+        });
+        }
+
         button_commander(){
 
           var taberrror = ["firstNameErrorMsg", "lastNameErrorMsg", "addressErrorMsg", "cityErrorMsg", "emailErrorMsg"];
@@ -140,6 +213,8 @@ class panier{
 
           btn.type = "submit";
         
+          this.number_commande();
+
         }else{
 
           btn.type = "button";
