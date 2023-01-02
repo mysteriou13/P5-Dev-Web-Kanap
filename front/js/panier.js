@@ -213,7 +213,12 @@ console.log(key);
 
           btn.type = "submit";
         
-          this.number_commande();
+      
+          btn.addEventListener("click",  event => {
+
+            this.number_commande();
+      
+          })
 
         }else{
 

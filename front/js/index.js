@@ -28,6 +28,8 @@ pro.data_price();
    
      })
 
+     
+
   }
 
    if(confirmation !== -1){

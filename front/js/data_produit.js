@@ -1,5 +1,7 @@
 class data_produit{
 
+
+  /* constructeur de la class */
     constructor(){
 
         this.title = document.getElementById("title");
@@ -100,6 +102,8 @@ class data_produit{
 
     }
 
+    /*card des  produit de la d'acceuil */
+
  card(product){
 
   
@@ -139,6 +143,8 @@ class data_produit{
  
  }
 
+    /* affichage du selecteur des couleur dans des canaper*/
+
  select_color() {
     
     var x = document.getElementById("colors").selectedIndex;
@@ -150,6 +156,8 @@ class data_produit{
 
   }
 
+  /* affiche et calcul des prix dans le panier */
+
   data_price(){
 
     var tabitem = [];
@@ -158,26 +166,26 @@ class data_produit{
     var tabitem = [];
 
 
+    /* recuper des donner du locatorage */
     for (var i = 0; i < localStorage.length; i++) {
 
-        // set iteration key name
+
         var key = localStorage.key(i);
       
-        // use key name to retrieve the corresponding value
+    
         var value = localStorage.getItem(key);
 
          tabitem.push(value+"§");
       
-        // console.log the iteration key and value
+   
     
        
       }
 
       var tabid = [];
 
+       /* speration des element du localstorage */
       for(var a = 0; a < tabitem.length; a++){
-     
-        //console.log(tabitem[a].split("§"));
 
         var t = tabitem[a].split("§");
 
@@ -185,22 +193,19 @@ class data_produit{
         
       }
 
-    
-
-      var tabid = [];
       var tabtotal = [];
       var tabquant = [];
       var tabprice = [];
-    //console.log(localStorage.getItem("107fb5b75607497b96722bda5b504926#Blue"));
+  
 
 
-
+      /* calcul quantité des canaper*/
     for (var i = 0; i < localStorage.length; i++) {
 
-        // set iteration key name
+    
         var key = localStorage.key(i);
       
-        // use key name to retrieve the corresponding value
+        
         var value = localStorage.getItem(key);
 
          tabitem.push(value+"§");
