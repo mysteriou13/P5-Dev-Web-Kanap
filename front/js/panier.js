@@ -1,5 +1,6 @@
 class panier{
 
+  /* ajout element au panier */
     add_element(key,value){
 
 
@@ -13,6 +14,8 @@ class panier{
         }
 
     }
+
+    /* modifcation quantiter d'un element  dans le panier*/
 
     update_quantity(key,value){
 
@@ -45,6 +48,7 @@ class panier{
 
     }
 
+    /*la card des du canaper dans la panier*/
 
     card_panier(data){
 
@@ -80,6 +84,7 @@ class panier{
      
     }
 
+    /* affichage des element du panier*/
         show_panier(){
 
       
@@ -115,6 +120,8 @@ class panier{
               
         }
 
+        /* generation du numero de commande*/
+
         number_commande(){
           var productId = [];
 
@@ -141,7 +148,6 @@ for(var c = 0; c < tabkey.length; c++){
 }   
 
 
-console.log(key);
 
     var productId = key;
 
@@ -187,6 +193,8 @@ console.log(key);
           alert(error);
         });
         }
+
+        /* fonction  qui envoi le numero de commande */
 
         button_commander(){
 
