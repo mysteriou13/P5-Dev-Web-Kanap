@@ -20,34 +20,42 @@ class data_produit{
     }
 
 
+    /* retourne la variable title*/
+
     get_title(){
 
         return  this.title.innerHTML;
     }
+
+    /* retourne la variable price*/
 
     get_price(){
 
         return  this.price.innerHTML;
     }
 
+    /*retourne la varaible description*/
      get_description(){
 
         return this.description.innerHTML;
     
      }
 
+     /*retourne la variable item*/
      get_item_img(){
 
         return this.item_img.innerHTML;
 
      }
 
+     /*retourne la variavle color*/
      get_color(){
 
         return this.color.innerHTML;
 
      }
 
+     /*retourne la variable img_url*/
      get_image_url(){
 
         return this.img_url;
