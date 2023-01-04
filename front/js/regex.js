@@ -7,7 +7,11 @@ class regex {
     this.iderror = null;
     this.div = null;
     this.diverror = null;
-    this.letters = null;
+
+    this.letters = /^[a-zA-Zàâäéèêëïîôöùûüç ,.'-]+$/
+    
+    this.mailformat = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+
   }
 
   /* modification value this.iderror */
@@ -31,13 +35,9 @@ class regex {
 
     }
 
-    set_letter(){
+    
 
-     return this.letters = /^[a-zA-Zàâäéèêëïîôöùûüç ,.'-]+$/;
-
-
-    }
-
+     
   /* fonction qui verfier le format du champs nom est prenom */
   regex_nom(id){
 
@@ -47,7 +47,7 @@ class regex {
 
     this.set_div_error(document.getElementById(this.iderror));
 
-    if (this.div.value.match(this.set_letter())) {
+    if (this.div.value.match(this.letters)) {
       this.diverror.innerHTML = " ";
     } else {
       this.diverror.innerHTML = "erreur format du nom" ;
@@ -58,21 +58,19 @@ class regex {
 
  ValidateEmail(id){
 
-  var iderror = id + "ErrorMsg";
+  this.set_div(document.getElementById(id));
 
-  var div = document.getElementById(id);
+  this.set_div_error(document.getElementById(this.iderror));
 
-  var diverror = document.getElementById(iderror);
+  this.set_iderror(id+"ErrorMsg");
 
-var mailformat = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+if (this.div.value.match(this.mailformat)) {
 
-if (div.value.match(mailformat)) {
-
-  diverror.innerHTML = " ";
+  this.diverror.innerHTML = " ";
 
 } else {
 
-  diverror.innerHTML = "format email invalide";
+  this.diverror.innerHTML = "format email invalide";
 
 }
 
