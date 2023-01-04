@@ -12,6 +12,8 @@ class regex {
     
     this.mailformat = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
 
+    this.adress = /^[a-zA-Z0-9 ]*$/;
+
   }
 
   /* modification value this.iderror */
