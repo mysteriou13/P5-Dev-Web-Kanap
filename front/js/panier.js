@@ -187,6 +187,8 @@ for(var c = 0; c < tabkey.length; c++){
           //envoie vers la page de de confirmation avec l'orderId en fin de l'URL.
 
           window.location.href = 'confirmation.html' + '?orderId=' + orderId;
+
+          localStorage.clear();
          
         })
         .catch((error) => {

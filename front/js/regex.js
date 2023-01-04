@@ -1,20 +1,56 @@
 class regex {
 
 
+  /* constcteur de la class */
+  constructor(){
+  
+    this.iderror = null;
+    this.div = null;
+    this.diverror = null;
+    this.letters = null;
+  }
+
+  /* modification value this.iderror */
+  
+  set_iderror(value){
+
+      this.iderror =  value;
+
+    }
+
+    /* modification variable div*/
+    set_div(value){
+
+      this.div = value;
+
+    }
+
+    set_div_error(value){
+
+      this.diverror = value;
+
+    }
+
+    set_letter(){
+
+     return this.letters = /^[a-zA-Zàâäéèêëïîôöùûüç ,.'-]+$/;
+
+
+    }
+
   /* fonction qui verfier le format du champs nom est prenom */
   regex_nom(id){
 
-    var iderror = id + "ErrorMsg";
+     this.set_iderror(id+"ErrorMsg");
 
-    var div = document.getElementById(id);
+     this.set_div(document.getElementById(id));
 
-    var diverror = document.getElementById(iderror);
+    this.set_div_error(document.getElementById(this.iderror));
 
-    var letters = /^[A-Za-z -]+$/;
-    if (div.value.match(letters)) {
-      diverror.innerHTML = " ";
+    if (this.div.value.match(this.set_letter())) {
+      this.diverror.innerHTML = " ";
     } else {
-      diverror.innerHTML = "le champ ne doit contenir que des lettres et des tirets" ;
+      this.diverror.innerHTML = "erreur format du nom" ;
     }
   }
 
