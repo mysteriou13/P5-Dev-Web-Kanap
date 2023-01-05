@@ -22,6 +22,9 @@ pro.data_price();
 
     pan.show_panier();
 
+
+     pan.event_panier();
+
     button.addEventListener("mouseenter", function( event ) {
 
       pan.button_commander();
@@ -41,13 +44,7 @@ pro.data_price();
     document.getElementById("orderId").innerHTML = name;
 
     } 
-  
-
-    function  verif_champ(id){
-
-      reg.regex_nom(id);
-      
-    }
+    
 
     function verif_mail(id){
 
@@ -71,6 +68,9 @@ pro.data_price();
     localStorage.removeItem(id);
 
   }
+
+
+
 
 function button_panier() {
 

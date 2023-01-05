@@ -1,4 +1,6 @@
-class panier{
+
+
+class panier extends regex{
 
   /* ajout element au panier */
     add_element(key,value){
@@ -237,6 +239,49 @@ for(var c = 0; c < tabkey.length; c++){
         }
 
       }
+
+
+
+
+      /*verfication des  champs du formulaire du panier*/
+       event_panier(){
+
+
+        document.getElementById("firstName").addEventListener("keyup",  event => {
+
+          reg.error_input("firstName",reg.get_letter(),"error format prénom");
+               
+               })
+
+        document.getElementById("lastName").addEventListener("keyup",  event => {
+
+          this.error_input("lastName",this.get_letter(),"error format nom");
+               
+               })
+  
+               document.getElementById("address").addEventListener("keyup",  event => {
+  
+                this.error_input("address",this.get_adress(),"error format adress");
+                     
+                     })
+  
+  
+  
+               document.getElementById("city").addEventListener("keyup",  event => {
+  
+                reg.error_input("city",this.get_city(),"error format nom de ville ");
+                     
+                     })
+  
+  
+                     document.getElementById("email").addEventListener("keyup",  event => {
+  
+                      reg.error_input("email",this.get_mail(),"error format email");
+                           
+                           })
+  
+
+       }
       
     }
 

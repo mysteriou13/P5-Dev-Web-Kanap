@@ -8,8 +8,6 @@ class regex {
     this.div = null;
     this.diverror = null;
 
-    this.letters = /^[a-zA-Zàâäéèêëïîôöùûüç ,.'-]+$/
-    
     this.mailformat = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
 
     this.adress = /^[a-zA-Z0-9 ]*$/;
@@ -39,9 +37,31 @@ class regex {
 
     }
 
+    get_letter(){
 
-    /*message erreur des champs */
-    error_message(id){
+      return this.letters = /^[a-zA-Zàâäéèêëïîôöùûüç ,.'-]+$/;
+
+    }
+
+    get_adress(){
+
+      return this.adress = /^[a-zA-Z0-9 ]*$/;
+    }
+
+    get_city(){
+
+      return this.city = /^[A-Za-z -]*$/;
+      
+    }
+
+    get_mail(){
+      
+      return this.mailformat = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+
+    }
+
+    /*message  input */
+    error_input(id,regex,message){
 
       this.set_iderror(id+"ErrorMsg");
 
@@ -49,79 +69,16 @@ class regex {
  
      this.set_div_error(document.getElementById(this.iderror));
 
-    }
-
-     
-  /* fonction qui verfier le format du champs nom est prenom */
-  regex_nom(id){
-
-   this.error_message(id);
-
-    if (this.div.value.match(this.letters)) {
+     if (this.div.value.match(regex)) {
       this.diverror.innerHTML = " ";
     } else {
-      this.diverror.innerHTML = "erreur format du nom" ;
+      this.diverror.innerHTML = message ;
     }
-  }
-
-    /* fonction qui verfier le format du champs  email*/
-
- ValidateEmail(id){
-
-  this.error_message(id);
-
-if (this.div.value.match(this.mailformat)) {
-
-  this.diverror.innerHTML = " ";
-
-} else {
-
-  this.diverror.innerHTML = "format email invalide";
-
-}
-
-}
 
 
-  /* fonction qui verfier le format du champs adress */
+    }
 
-valide_adress(id){
-
-
-    this.error_message(id);
-
-
-    if (this.div.value.match(this.adress)) {
-
-     
-     this.diverror.innerHTML = " ";
-
-  }else{
-
-    this.diverror.innerHTML = "erreur format adress";
-  }
- 
-}
-
-  /* fonction qui verfier le format du champs ville*/
-
-verif_city(id){
-
-    this.error_message(id);
-
-    
-  if(this.div.value.match(this.city)){
-
-    this.diverror.innerHTML = " ";
-
-  }else{
-
-    this.diverror.innerHTML = "erreur format nom  de ville";
-
-  }
 
 
 }
 
-
-}
