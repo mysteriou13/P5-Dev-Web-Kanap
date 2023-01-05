@@ -31,22 +31,28 @@ class regex {
 
     }
 
+    /* ajout id pour la champs d'erreur */
+
     set_div_error(value){
 
       this.diverror = value;
 
     }
 
+    /*regex lettre*/
     get_letter(){
 
       return this.letters = /^[a-zA-Zàâäéèêëïîôöùûüç ,.'-]+$/;
 
     }
 
+    /*regex adress*/
     get_adress(){
 
       return this.adress = /^[a-zA-Z0-9 ]*$/;
     }
+   
+    /*regex ville*/
 
     get_city(){
 
@@ -54,6 +60,7 @@ class regex {
       
     }
 
+    /*regex adresss mail*/
     get_mail(){
       
       return this.mailformat = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
