@@ -10,9 +10,13 @@ class panier extends regex{
 
           localStorage.setItem(key, value);
 
+          window.location.href = "./cart.html";
+
         }else{
 
           this.update_quantity(key,value);
+
+          window.location.href = "./cart.html";
         }
 
     }
@@ -32,9 +36,10 @@ class panier extends regex{
 
        var update = null;
 
-       if(  quant+parseInt(val[4]) <= 99){
+       if(  quant+parseInt(val[4]) <= 99 ){
 
          var update = quant+parseInt(val[4]);
+
 
          }else{
           update = 100;
@@ -42,8 +47,11 @@ class panier extends regex{
 
          var total = data[0]+"§"+data[1]+"§"+data[2]+"§"+data[3]+"§"+update; 
 
-         
+         if(parseInt(val[4]) >=1 || parseInt(val[4]) <=99 ){
+
          localStorage.setItem(key, total);
+
+         }
 
       }
 
