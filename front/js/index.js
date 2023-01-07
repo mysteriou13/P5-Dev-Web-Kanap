@@ -16,14 +16,13 @@ let confirmation = url.search("confirmation.html");
 var button = document.getElementById("order");
 
 
-pro.data_price();
-
   if(position !== -1){
 
     pan.show_panier();
 
-
      pan.event_panier();
+
+     pro.data_price();
 
     button.addEventListener("mouseenter", function( event ) {
 

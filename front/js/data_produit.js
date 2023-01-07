@@ -283,8 +283,6 @@ const total = tabtotal.reduce(
   initialValue1
 )
 
-console.log(tabtotal);
-
 document.getElementById("totalPrice").innerHTML = total;     
         
     
