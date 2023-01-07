@@ -67,6 +67,8 @@ pro.data_price();
 
     localStorage.removeItem(id);
 
+    window.location.href = "./cart.html";
+
   }
 
 
