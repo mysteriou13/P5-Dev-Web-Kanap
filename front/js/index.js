@@ -15,6 +15,7 @@ let confirmation = url.search("confirmation.html");
 
 var button = document.getElementById("order");
 
+/* code pour la page panier*/
 
   if(position !== -1){
 
@@ -34,6 +35,8 @@ var button = document.getElementById("order");
 
   }
 
+  /*code la page de confirmation*/
+
    if(confirmation !== -1){
 
     let params = new URLSearchParams(document.location.search);
@@ -46,7 +49,7 @@ var button = document.getElementById("order");
     
 
     
-
+/*fonction qui suprime element dans le panier*/
   function delete_el(id){
 
     localStorage.removeItem(id);
@@ -56,7 +59,7 @@ var button = document.getElementById("order");
   }
 
 
-
+/* ajout element au panier */
 
 function button_panier() {
 
@@ -71,7 +74,7 @@ pan.add_element(id,data);
 
  
     
-
+/*apelle donner a l'api*/
 fetch('http://localhost:3000/api/products')
 
 
@@ -80,12 +83,15 @@ fetch('http://localhost:3000/api/products')
 // Promesse 2 : Récupération des données de l'API
 .then(dataBase => {
 
+ /*affiche de tout les produit dans la page d'accueil*/
 
   if(params.get("page") == null){
 
   pro.affiche_all(dataBase);
   
 }
+
+/* affichage du produit dans la page produit.html */
 
 if(params.get("page") == "produit"){
 
