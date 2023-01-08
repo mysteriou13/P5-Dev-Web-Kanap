@@ -45,22 +45,7 @@ var button = document.getElementById("order");
     } 
     
 
-    function verif_mail(id){
-
-      reg.ValidateEmail(id);
-
-    }
-
-    function verif_adress(id){
-
-      reg.valide_adress(id);
-
-    }
-
-    function verif_ville(id){
-
-      reg.verif_city(id);
-    }
+    
 
   function delete_el(id){
 
