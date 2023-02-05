@@ -19,11 +19,11 @@ var button = document.getElementById("order");
 
   if(position !== -1){
 
+    pro.data_price();
+
     pan.show_panier();
 
      pan.event_panier();
-
-     pro.data_price();
 
     button.addEventListener("mouseenter", function( event ) {
 

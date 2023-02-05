@@ -153,6 +153,7 @@ class data_produit{
 
     /* affichage du selecteur des couleur dans des canaper*/
 
+    
  select_color() {
     
     var x = document.getElementById("colors").selectedIndex;
@@ -164,6 +165,7 @@ class data_produit{
 
   }
 
+  
   /* affiche et calcul des prix dans le panier */
 
   data_price(){
@@ -184,55 +186,40 @@ class data_produit{
         var value = localStorage.getItem(key);
 
          tabitem.push(value+"§");
-      
-   
     
-       
+         
       }
 
       var tabid = [];
 
-       /* speration des element du localstorage */
-      for(var a = 0; a < tabitem.length; a++){
-
-        var t = tabitem[a].split("§");
-
-        tabid.push(t[0]);
-        
-      }
-
       var tabtotal = [];
       var tabquant = [];
       var tabprice = [];
-  
-
-
-      /* calcul quantité des canaper*/
+      
+      /* recuperation id des canaper*/
     for (var i = 0; i < localStorage.length; i++) {
 
     
         var key = localStorage.key(i);
-      
-        
+  
         var value = localStorage.getItem(key);
 
          tabitem.push(value+"§");
+    
+          tabid.push(key); 
       
-         var d = tabitem[i].split("§");
-
-          tabid.push(d[0]); 
-              
-         tabquant.push(parseInt(d[4]));
-     
     }
 
+
+    /*
     const initialValue = 0;
     const totalquant = tabquant.reduce(
       (accumulator, currentValue) => accumulator + currentValue,
       initialValue
     );
-    
-  
+
+
+    /* apelle a l'api pour recuperation du prix*/  
 
     fetch('http://localhost:3000/api/products')
 
@@ -242,49 +229,61 @@ class data_produit{
     // Promesse 2 : Récupération des données de l'API
     .then(dataBase => {
 
-
         for(var f = 0; f < dataBase.length; f++){
 
+          /* parcourir el tabd pour recuper les id des element du panier */
     
         for(var f1 = 0; f1 < tabid.length; f1++){
 
-            var id = dataBase[f]._id;
-        
-            if(tabid[f1].indexOf(id) != -1){
-         
-        
-              tabprice.push(dataBase[f]._id+"µ"+dataBase[f].price);
-            
-               var splittab = localStorage.getItem(tabid[f1]).split("§");
+          var position = tabid[f1].indexOf(dataBase[f]._id);
 
-            
-               tabtotal.push(dataBase[f].price*splittab[4]);
+             if(position !== -1){
 
-            }
+              var datakey = localStorage.getItem(tabid[f1]);
+          
+              var dataloc = datakey.split("§");
+              
+               var quant = parseInt(dataloc[4]);
+
+               var  price = dataBase[f].price;
+    
+               var  price_quant = price*quant;
+
+               /*quantier article */
+              tabquant.push(quant);
+
+              /*prix des canapés*/
+              tabprice.push(price_quant);
+
+              /*affichage du prix unitaire des canaper*/
+               document.getElementById(tabid[f1]).innerHTML = dataBase[f].price+"€";
+
+
+             }
+        
         
        }
 
         }
 
-       
-
-
-        for(var p = 0; p <tabprice.length; p++){
-
-          var p1 = tabprice[p].split("µ");
-
-          document.getElementById(p1[0]).innerHTML = p1[1]+"€";
-         document.getElementById("totalQuantity").innerHTML = totalquant;
-        }
-
+        /*total quantity  cananpé*/
         const initialValue1 = 0;
-const total = tabtotal.reduce(
+const total = tabquant.reduce(
   (accumulator, currentValue) => accumulator + currentValue,
   initialValue1
 )
 
-document.getElementById("totalPrice").innerHTML = total;     
-        
+/*total prix du panier*/
+const initialValue = 0;
+const totalprice = tabprice.reduce(
+  (accumulator, currentValue) => accumulator + currentValue,
+  initialValue1
+)
+
+   document.getElementById("totalQuantity").innerHTML = total;
+
+   document.getElementById("totalPrice").innerHTML = totalprice;
+
     
     })
     

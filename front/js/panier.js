@@ -5,7 +5,6 @@ class panier extends regex{
   /* ajout element au panier */
     add_element(key,value){
 
-
         if(localStorage.getItem(key) === null){
 
           localStorage.setItem(key, value);
@@ -62,8 +61,6 @@ class panier extends regex{
 
     card_panier(data){
 
-   
-
       var idcolor = data[0];
 
         var t = idcolor.split("#");
@@ -76,7 +73,7 @@ class panier extends regex{
                   <div class="cart__item__content__description">
                     <h2>${data[1]}</h2>
                     <p>${data[3]}</p>
-                    <p id = "`+t[0]+`">42,00 €</p>
+                    <p id = "`+data[0]+`"></p>
                   </div>
                   <div class="cart__item__content__settings">
                     <div class="cart__item__content__settings__quantity">
