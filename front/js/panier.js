@@ -137,18 +137,16 @@ class panier extends regex{
 
 var tabkey = [];
 
-var tabproduit = [];
-
 var key = [];
 
+/*recuperation tout les key du locatstroage */
 for (let i = 0; i < localStorage.length; i++) {
  
    tabkey.push(localStorage.key(i));
 
 }
 
-
-
+/*recuperation id des produit dans le panier*/
 for(var c = 0; c < tabkey.length; c++){
 
   var e  = tabkey[c].split("#");
@@ -257,7 +255,7 @@ for(var c = 0; c < tabkey.length; c++){
 
         document.getElementById("firstName").addEventListener("keyup",  event => {
 
-          reg.error_input("firstName",reg.get_letter(),"error format prénom");
+          this.error_input("firstName",reg.get_letter(),"error format prénom");
                
                })
 
@@ -277,14 +275,14 @@ for(var c = 0; c < tabkey.length; c++){
   
                document.getElementById("city").addEventListener("keyup",  event => {
   
-                reg.error_input("city",this.get_city(),"error format nom de ville ");
+                this.error_input("city",this.get_city(),"error format nom de ville reg ");
                      
                      })
   
   
                      document.getElementById("email").addEventListener("keyup",  event => {
   
-                      reg.error_input("email",this.get_mail(),"error format email");
+                      this.error_input("email",this.get_mail(),"error format email");
                            
                            })
   

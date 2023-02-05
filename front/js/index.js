@@ -98,26 +98,7 @@ if(params.get("page") == "produit"){
 
   pro.product(dataBase,params.get("id"));
 
-
-  
-if(params.get("page") == null){
-
-  pro.affiche_all(dataBase);
-  
 }
-
-if(params.get("page") == "produit"){
-
-
-  pro.product(dataBase,params.get("id"));
-
-
-  
-
-}
-}
-
-
 
 })
 
