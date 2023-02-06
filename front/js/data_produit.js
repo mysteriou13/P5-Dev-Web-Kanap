@@ -166,33 +166,11 @@ class data_produit{
   }
 
   
-  /* affiche et calcul des prix dans le panier */
+  /* affichage et calcul des prix dans le panier */
 
   data_price(){
 
-    var tabitem = [];
-
-
-    var tabitem = [];
-
-
-    /* recuper des donner du locatorage */
-    for (var i = 0; i < localStorage.length; i++) {
-
-
-        var key = localStorage.key(i);
-      
-    
-        var value = localStorage.getItem(key);
-
-         tabitem.push(value+"§");
-    
-         
-      }
-
-      var tabid = [];
-
-      var tabtotal = [];
+      var tabitem = [];
       var tabquant = [];
       var tabprice = [];
       
@@ -201,23 +179,10 @@ class data_produit{
 
     
         var key = localStorage.key(i);
-  
-        var value = localStorage.getItem(key);
-
-         tabitem.push(value+"§");
-    
-          tabid.push(key); 
+      
+          tabitem.push(key); 
       
     }
-
-
-    /*
-    const initialValue = 0;
-    const totalquant = tabquant.reduce(
-      (accumulator, currentValue) => accumulator + currentValue,
-      initialValue
-    );
-
 
     /* apelle a l'api pour recuperation du prix*/  
 
@@ -233,13 +198,13 @@ class data_produit{
 
           /* parcourir el tabd pour recuper les id des element du panier */
     
-        for(var f1 = 0; f1 < tabid.length; f1++){
+        for(var f1 = 0; f1 < tabitem.length; f1++){
 
-          var position = tabid[f1].indexOf(dataBase[f]._id);
+          var position = tabitem[f1].indexOf(dataBase[f]._id);
 
              if(position !== -1){
 
-              var datakey = localStorage.getItem(tabid[f1]);
+              var datakey = localStorage.getItem(tabitem[f1]);
           
               var dataloc = datakey.split("§");
               
@@ -256,7 +221,7 @@ class data_produit{
               tabprice.push(price_quant);
 
               /*affichage du prix unitaire des canaper*/
-               document.getElementById(tabid[f1]).innerHTML = dataBase[f].price+"€";
+               document.getElementById(tabitem[f1]).innerHTML = dataBase[f].price+"€";
 
 
              }
