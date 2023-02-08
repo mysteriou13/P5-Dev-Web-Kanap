@@ -40,8 +40,6 @@ var button = document.getElementById("order");
     
     }
 
-    console.log(tabi);
-
     for(a = 0; a < tabi.length; a++){
 
       var b = document.getElementById(tabi[a]);
