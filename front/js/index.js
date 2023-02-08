@@ -25,6 +25,35 @@ var button = document.getElementById("order");
 
      pan.event_panier();
 
+     var tabi = [];
+
+     for (var i = 0; i < localStorage.length; i++) {
+
+      // set iteration key name
+      var key = localStorage.key(i);
+  
+
+      var itemkey = "itemQuantity%"+key;
+    
+
+      tabi.push(itemkey);
+    
+    }
+
+    console.log(tabi);
+
+    for(a = 0; a < tabi.length; a++){
+
+      var b = document.getElementById(tabi[a]);
+
+      var val = b.value;
+      b.onclick  = function() { pan.update_item(this.id,document.getElementById(this.id).value); pro.data_price()};
+
+    }
+
+
+
+
     button.addEventListener("mouseenter", function( event ) {
 
       pan.button_commander();

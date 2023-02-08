@@ -20,6 +20,22 @@ class panier extends regex{
 
     }
 
+     /* modification de la quantité d'un article dans le panier*/
+
+    update_item(key,item){
+
+      var tab = key.split("itemQuantity%");
+
+      var data = localStorage.getItem(tab[1]).split("§");
+
+      var total = data[0]+"§"+data[1]+"§"+data[2]+"§"+data[3]+"§"+item; 
+
+      console.log(tab[1]);
+
+      localStorage.setItem(tab[1],total);
+            
+    }
+
     /* modifcation quantiter d'un element  dans le panier*/
 
     update_quantity(key,value){
@@ -78,7 +94,7 @@ class panier extends regex{
                   <div class="cart__item__content__settings">
                     <div class="cart__item__content__settings__quantity">
                       <p>Qté : </p>
-                      <input type="number" class="itemQuantity" name="itemQuantity" min="1" max="100" value="${data[4]}">
+                      <input type="number" class="itemQuantity" name = "itemQuantity%${idcolor}" id = "itemQuantity%${idcolor}" min="1" max="100" value="${data[4]}">
                     </div>
                     <div class="cart__item__content__settings__delete">
                       <p class="deleteItem" id = "${data[0]}" onclick = "delete_el(this.id)">Supprimer</p>
