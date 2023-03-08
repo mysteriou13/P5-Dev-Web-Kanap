@@ -94,8 +94,13 @@ function button_panier() {
 
   var data = id+"§"+pro.get_title()+"§"+pro.get_image_url()+"§"+pro.select_color()+"§"+document.getElementById("quantity").value;
 
+  console.log(document.getElementById("quantity").value);
+
+  if(document.getElementById("quantity").value >=1 && document.getElementById("quantity").value <=100  ){
 
 pan.add_element(id,data);
+
+  }
 
 }
 

@@ -5,18 +5,27 @@ class panier extends regex{
   /* ajout element au panier */
     add_element(key,value){
 
+      console.log(value);
+
         if(localStorage.getItem(key) === null){
 
           localStorage.setItem(key, value);
 
           window.location.href = "./cart.html";
 
+
+
         }else{
 
+        
           this.update_quantity(key,value);
 
           window.location.href = "./cart.html";
+
+      
         }
+
+
 
     }
 
@@ -30,7 +39,6 @@ class panier extends regex{
 
       var total = data[0]+"§"+data[1]+"§"+data[2]+"§"+data[3]+"§"+item; 
 
-      console.log(tab[1]);
 
       localStorage.setItem(tab[1],total);
             
