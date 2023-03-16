@@ -154,6 +154,9 @@ class panier extends regex{
         /* generation du numero de commande*/
 
         number_commande(){
+
+        
+
           var productId = [];
 
 var tabkey = [];
@@ -178,20 +181,20 @@ for(var c = 0; c < tabkey.length; c++){
 
 
 
+
     var productId = key;
 
       let order = {
         contact: {
-          firstName: "first",
-          lastName: "lastName.value",
-          address: "address.value",
-          city: "city.value",
-          email: "email.value",
+          firstName: document.getElementById("firstName").value,
+          lastName: document.getElementById("lastName").value,
+          address: document.getElementById("address").value,
+          city: document.getElementById("city").value,
+          email: document.getElementById("email").value,
         },
         products: productId,
       };
 
-   
 
       // Options de la method POST. 
 
