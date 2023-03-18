@@ -90,6 +90,8 @@ class panier extends regex{
         var t = idcolor.split("#");
       
       var cardpanier = `
+
+       <article class="cart__item" ">
                 <div class="cart__item__img">
                   <img src="${data[2]}" alt="Photographie d'un canapé">
                 </div>
@@ -108,7 +110,9 @@ class panier extends regex{
                       <p class="deleteItem" id = "${data[0]}" onclick = "delete_el(this.id)">Supprimer</p>
                     </div>
                   </div>
-                </div>`;
+                </div>
+                <article>
+                `;
                 
 
                 return cardpanier;
