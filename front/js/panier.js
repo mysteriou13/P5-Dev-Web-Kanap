@@ -91,7 +91,7 @@ class panier extends regex{
       
       var cardpanier = `
 
-       <article class="cart__item" ">
+       <article class="cart__item" >
                 <div class="cart__item__img">
                   <img src="${data[2]}" alt="Photographie d'un canapé">
                 </div>
@@ -235,6 +235,7 @@ for(var c = 0; c < tabkey.length; c++){
         /* fonction  qui envoi le numero de commande */
 
         button_commander(){
+        
 
           var taberrror = ["firstNameErrorMsg", "lastNameErrorMsg", "addressErrorMsg", "cityErrorMsg", "emailErrorMsg"];
 
@@ -257,7 +258,7 @@ for(var c = 0; c < tabkey.length; c++){
 
         if(error == 5){
 
-          btn.type = "submit";
+         
         
       
           btn.addEventListener("click",  event => {
