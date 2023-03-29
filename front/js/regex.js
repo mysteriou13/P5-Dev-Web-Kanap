@@ -49,14 +49,14 @@ class regex {
     /*regex adress*/
     get_adress(){
 
-      return this.adress = /^[a-zA-Z0-9 ]*$/;
+      return this.adress = /^[a-zA-Z0-9À-ÖØ-öø-ſ ]*$/;
     }
    
     /*regex ville*/
 
     get_city(){
 
-      return this.city = /^[A-Za-z -]*$/;
+      return this.city = /^[A-Za-zÀ-ÖØ-öø-ſ -]*$/;
       
     }
 
